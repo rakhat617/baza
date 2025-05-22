@@ -19,11 +19,11 @@ def create_table(table_name:str, fields:dict):
 
 def insert_data(table_name:str, data:list):
     for row in data:
-        columns = ', '.join(row.keys())
+        fields = ', '.join(row.keys())
         placeholders = ', '.join(['%s'] * len(row)) #GPT подсказала как сделать нужное количество %s
         values = list(row.values())
         cursor.execute(f'''
-            INSERT INTO {table_name}({columns})
+            INSERT INTO {table_name}({fields})
             VALUES({placeholders});
         ''', values)
         conn.commit()
