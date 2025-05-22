@@ -33,7 +33,7 @@ def insert_data(table_name:str, data:list):
 insert_data('fff', [{'surname':'Abdrakhmanov', 'name':'Rakhat'}, {'name': 'Adilya'}])
 
 
-def select_data(table_name:str, fields='*', filter=''):
+def select_data(table_name:str, fields='*', filter=None):
     if isinstance(fields, list):
         fields = ', '.join(fields)
     if filter:
